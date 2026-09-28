@@ -1,0 +1,68 @@
+Pi Player 무료 사용 독점 소프트웨어 이용허락
+버전 1.0 · 2026-09-28
+
+Copyright (c) 2026 Pi-Dimension. All rights reserved.
+
+1. 무료 사용 허용
+Pi-Dimension은 공식 배포처에서 받은 Pi Player 실행 프로그램을 개인,
+교육, 비영리 및 회사·기관의 업무용으로 무료 설치하고 사용할 수 있는
+비독점적 이용권을 부여합니다. 허용된 사용에 필요한 기기 내 복제와 백업,
+동일 조직이 관리하는 기기에 대한 내부 설치·배포도 허용합니다.
+이 허락에 사용 기간이나 기기 수 제한은 없습니다.
+
+2. 소유권 및 소스
+Pi Player 자체 코드, 디자인, 이름과 원본 아이콘의 권리는 저작권자에게
+남습니다. 이 약관은 Pi Player 자체 소스의 공개, 수정, 재라이선스 또는
+소유권 이전을 허락하지 않습니다.
+
+3. 판매 및 외부 재배포 제한
+별도 서면 허락 없이 Pi Player 자체를 판매·대여·재판매하거나 유료 상품에
+묶어 판매할 수 없습니다. 공식 설치 파일의 외부 미러링·재업로드, 수정본이나
+재포장본의 외부 배포도 허용하지 않습니다. 공식 다운로드 페이지의 링크를
+공유하는 것은 허용합니다. 저작권 및 라이선스 고지를 제거하지 마세요.
+이는 1항의 정상적인 업무용 사용과 내부 설치를 금지하지 않습니다.
+
+4. 제3자 구성요소와 법률상 권리
+Electron·Chromium·FFmpeg 등 제3자 구성요소에는 해당 구성요소의 원래
+라이선스가 우선 적용됩니다. 위 제한은 그 라이선스가 보장하는 사용, 수정,
+역공학, 복제, 재배포 또는 소스 접근 권리를 축소하지 않습니다. 자세한
+저작권·조건은 THIRD_PARTY_NOTICES.md, licenses 디렉터리와 런타임의
+LICENSES.chromium.html을 확인하세요. 강행 법규가 보장하는 권리도 제한하지 않습니다.
+
+5. 사용자 콘텐츠
+사용자가 재생하는 동영상·음악·자막의 권리는 원래 권리자에게 있습니다.
+Pi Player는 사용자의 기기에 이미 있는 파일을 재생할 뿐이며, 인터넷에서
+콘텐츠를 내려받는 기능을 제공하지 않습니다. Pi Player 이용허락이 콘텐츠의
+이용허락을 대신하지 않습니다.
+
+6. 보증 및 책임
+프로그램은 현 상태로 제공됩니다. 적용 법률이 허용하는 범위에서 특정 목적에
+대한 적합성, 무오류 동작, 지속적인 업데이트·지원은 보증하지 않습니다.
+같은 범위에서 사용 또는 사용 불능으로 인한 손해에 대한 책임을 제한합니다.
+법률상 배제하거나 제한할 수 없는 책임에는 이 조항이 적용되지 않습니다.
+
+7. 적용 및 문의
+이 약관은 함께 배포된 Pi Player 버전에 적용됩니다. 향후 약관 변경이 이미
+배포된 버전의 이용허락을 소급하여 축소하지 않습니다. 중대한 약관 위반 시
+해당 위반 사용에 대한 이용허락은 종료될 수 있습니다.
+문의: https://github.com/cherub8128/Pi-Player-Releases/issues
+공식 배포처: https://github.com/cherub8128/Pi-Player-Releases
+Android 버전: https://play.google.com/store/apps/details?id=com.PiDimension.PiPlayer.viewer
+
+---
+
+Pi Player Free-to-Use Proprietary License (summary in English)
+
+Copyright (c) 2026 Pi-Dimension. All rights reserved.
+
+You may install and use Pi Player free of charge for personal, educational,
+non-profit and business purposes, including internal deployment within your
+organisation. You may not sell, rent or redistribute Pi Player itself, or
+distribute modified or repackaged builds, without written permission; sharing
+a link to the official download page is allowed. Third-party components keep
+their own licences, which take precedence and are not restricted by these
+terms (see THIRD_PARTY_NOTICES.md, the licenses directory and
+LICENSES.chromium.html). Pi Player only plays files already on your device and
+does not download content from the internet. THE SOFTWARE IS PROVIDED "AS IS",
+WITHOUT WARRANTY OF ANY KIND, to the extent permitted by applicable law. The
+Korean text above is authoritative.
