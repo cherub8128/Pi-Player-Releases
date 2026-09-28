@@ -15,21 +15,37 @@ The renderer is bundled by Vite into `dist/`; these are the only libraries it co
 | node-qrcode (QR code for Wi-Fi sharing) | 1.5.4 | MIT | licenses/qrcode-MIT.txt |
 | dijkstrajs (used by node-qrcode) | 1.0.3 | MIT | licenses/dijkstrajs-MIT.txt |
 
-The phone page served by Wi-Fi sharing (`electron/remote/`) is Pi Player's own code and uses no third-party library. No fonts are bundled; the app uses the operating system's fonts. No analytics, advertising or tracking SDK is included.
+The phone page served by Wi-Fi sharing (`electron/remote/`) is Pi Player's own code and uses no third-party library. No analytics, advertising or tracking SDK is included.
+
+## Bundled fonts (SIL Open Font License 1.1)
+
+The interface uses Noto Sans; the others are subtitle font choices. The font files are the unmodified WOFF2 files published in the packages below (Pretendard's are the author's own dynamic-subset build). Each is distributed under the SIL Open Font License 1.1 with its copyright notice; the complete license texts are in `licenses/`. The fonts are not sold on their own, and Pi Player's own license does not apply to them.
+
+| Font | Package | Version | Copyright | License text |
+| --- | --- | --- | --- | --- |
+| Noto Sans | @fontsource-variable/noto-sans | 5.3.0 | The Noto Project Authors | licenses/NotoSans-OFL.txt |
+| Noto Sans KR | @fontsource-variable/noto-sans-kr | 5.3.0 | Google Inc. | licenses/NotoSansKR-OFL.txt |
+| Noto Serif | @fontsource-variable/noto-serif | 5.3.0 | The Noto Project Authors | licenses/NotoSerif-OFL.txt |
+| Noto Serif KR | @fontsource-variable/noto-serif-kr | 5.3.0 | Google Inc. | licenses/NotoSerifKR-OFL.txt |
+| Pretendard | pretendard | 1.3.9 | Kil Hyung-jin, Reserved Font Name "Pretendard" | licenses/Pretendard-OFL.txt |
+| Nanum Gothic | @fontsource/nanum-gothic | 5.3.0 | NHN Corporation (NAVER), design Sandoll Communications | licenses/NanumGothic-OFL.txt |
+| Nanum Myeongjo | @fontsource/nanum-myeongjo | 5.3.0 | NHN Corporation (NAVER), design FONTRIX | licenses/NanumMyeongjo-OFL.txt |
 
 ## Desktop runtime
 
-Electron 44.4.5 is distributed under the MIT license together with Chromium, Node.js, V8, FFmpeg and other components under their respective licenses. The official Electron runtime is redistributed unmodified apart from packaging, branding and (on macOS) an ad-hoc signature. `LICENSE.electron.txt` and `LICENSES.chromium.html` from the official runtime are kept beside the Windows/Linux executable and inside the macOS app bundle's resources; those complete notices are authoritative. Electron's MIT license is also reproduced in licenses/Electron-MIT.txt.
+Electron 44.4.5 is distributed under the MIT license together with Chromium, Node.js, V8, FFmpeg and other components under their respective licenses. The official Electron runtime is redistributed unmodified apart from packaging, branding, Electron's own security fuses, the FFmpeg library described below and (on macOS) an ad-hoc signature. `LICENSE.electron.txt` and `LICENSES.chromium.html` from the official runtime are kept beside the Windows/Linux executable and inside the macOS app bundle's resources; those complete notices are authoritative. Electron's MIT license is also reproduced in licenses/Electron-MIT.txt.
 
 Source references: https://github.com/electron/electron/tree/v44.4.5 — its `DEPS` file identifies the matching Chromium, Node.js and V8 revisions.
 
-### FFmpeg (LGPL-2.1-or-later)
+### FFmpeg (LGPL-2.1-or-later) — patent-free build
 
-Media decoding uses the FFmpeg build that ships with Electron as a separate shared library (`ffmpeg.dll` on Windows, `libffmpeg.so` on Linux, `libffmpeg.dylib` inside the macOS framework). It is built without `--enable-gpl`, so the LGPL v2.1+ applies. Pi Player does not modify or statically link it; you may replace the library with a compatible build. The FFmpeg license text is included in `LICENSES.chromium.html`. The corresponding source is available from the Chromium source tree referenced by the Electron release above (`third_party/ffmpeg`) and from https://github.com/electron/electron/releases/tag/v44.4.5. For at least three years after we distribute a given version, we will also provide the complete corresponding FFmpeg source on request (https://github.com/cherub8128/Pi-Player-Releases/issues or cherub8128@gmail.com).
+Media decoding uses FFmpeg as a separate shared library (`ffmpeg.dll` on Windows, `libffmpeg.so` on Linux, `libffmpeg.dylib` inside the macOS framework). The installers ship **the official FFmpeg build that Electron publishes without proprietary codecs** (`ffmpeg-v44.4.5-<platform>-<arch>.zip` from https://github.com/electron/electron/releases/tag/v44.4.5; the SHA-256 of each file is pinned in `electron/codec-sources.json` and checked at build time). It decodes VP8, VP9, AV1, Theora, Opus, Vorbis, FLAC, MP3 and PCM, which are royalty-free or no longer patent-encumbered. It is built without `--enable-gpl`, so the LGPL v2.1+ applies. Pi Player does not modify or statically link it; you may replace the library with a compatible build. The FFmpeg license text is included in `LICENSES.chromium.html`; the corresponding source is in the Chromium source tree referenced by the Electron release (`third_party/ffmpeg`). For at least three years after we distribute a given version, we will also provide the complete corresponding FFmpeg source on request (https://github.com/cherub8128/Pi-Player-Releases/issues or cherub8128@gmail.com).
 
-### Codecs
+### Codecs and the optional codec pack
 
-Playback relies on Chromium's decoders and, where available, the operating system's hardware decoders (for example HEVC on Windows with the HEVC extension, or on macOS). Pi Player adds no codec of its own. Formats that the runtime cannot decode (AVI, WMV, some MKV) are offered to the system's default player instead.
+Pi Player does **not** distribute H.264 or AAC decoders. Settings → Codecs explains how a user can download, **from Electron's official GitHub release, by themselves**, the standard Electron runtime archive for the same version (`electron-v44.4.5-<platform>-<arch>.zip`). The app verifies that archive against the SHA-256 published in Electron's `SHASUMS256.txt`, extracts only its FFmpeg library into the user's data folder, and loads it instead of the patent-free build. That archive and library are obtained by the user directly from Electron's distribution under Electron's and FFmpeg's licenses; they are never hosted, bundled or redistributed by Pi Player. Whether patent licenses are needed for such decoders where the user lives is for the user to judge; the app says so on the same screen.
+
+HEVC (H.265) plays only where the operating system provides a hardware decoder (Windows with the HEVC extension, macOS) and the codec pack is installed. Formats the runtime cannot decode (AVI, WMV, AC-3/DTS audio) are offered to the system's default player instead.
 
 ## Installers and packages
 
@@ -39,7 +55,7 @@ Playback relies on Chromium's decoders and, where available, the operating syste
 
 ## Build tools (not shipped)
 
-Vite, TypeScript, @vitejs/plugin-react, electron-builder, Playwright, sharp (libvips) and png-to-ico are used only to build and test the app and are not included in the installers.
+Vite, TypeScript, @vitejs/plugin-react, oxlint, electron-builder, Playwright, sharp (libvips) and png-to-ico are used only to build and test the app and are not included in the installers.
 
 ## Android edition
 
