@@ -12,16 +12,19 @@
 
 | 기기 | 선택할 파일 |
 | --- | --- |
-| Windows 10·11 64비트 | `windows-x64-setup.exe` 권장 · 설치 없이 쓰려면 `windows-x64-portable.exe` |
-| Apple Silicon Mac (M1 이후) | `mac-arm64.dmg` |
-| Intel Mac | `mac-x64.dmg` |
-| Ubuntu·Debian 계열 64비트 | `linux-x64.deb` |
-| 그 밖의 Linux 64비트 | `linux-x64.AppImage` — 파일에 실행 권한을 준 뒤 실행 |
+| Windows 10·11 (Intel·AMD 64비트) | `windows-x64-setup.exe` 권장 · 설치 없이 쓰려면 `windows-x64-portable.exe` |
+| Windows 11 ARM (Snapdragon 등) | `windows-arm64-setup.exe` · `windows-arm64-portable.exe` |
+| Apple Silicon Mac (M1 이후) | `mac-arm64.dmg` (또는 `mac-arm64.zip`) |
+| Intel Mac | `mac-x64.dmg` (또는 `mac-x64.zip`) |
+| Ubuntu·Debian·Mint 등 64비트 | `linux-amd64.deb` |
+| Fedora·RHEL·openSUSE 등 64비트 | `linux-x86_64.rpm` |
+| 그 밖의 Linux 64비트 | `linux-x86_64.AppImage` — 파일에 실행 권한을 준 뒤 실행 |
+| Linux ARM64 (Raspberry Pi 4·5 64비트 OS 등) | `linux-arm64.deb` · `linux-aarch64.rpm` · `linux-arm64.AppImage` |
 | **Android 휴대폰·태블릿** | **[Google Play에서 Pi Player 설치](https://play.google.com/store/apps/details?id=com.PiDimension.PiPlayer.viewer)** (APK는 따로 배포하지 않습니다) |
 
 ## 주요 기능
 
-- **갤러리** — 폴더 묶음(갤러리)을 여러 개 만들고 사이드바나 Ctrl+1–9로 오갑니다. 처음 실행하면 사용자 폴더의 "동영상" 폴더로 갤러리를 만들어 두고, 시작할 때 보여 줄 갤러리를 고를 수 있습니다
+- **갤러리** — 폴더 묶음(갤러리)을 여러 개 만들고 사이드바나 Ctrl+1–9로 오갑니다. 갤러리마다 원하는 폴더를 여러 개 지정할 수 있고, 처음 실행하면 사용자 폴더의 동영상 폴더로 "내 동영상" 갤러리를 만들어 두며, 시작할 때 보여 줄 갤러리를 고를 수 있습니다
 - **라이브러리** — 하위 폴더까지 동영상·음악을 모읍니다. 이어 보기, 최근 재생, 즐겨찾기, 폴더·태그별 보기, `#태그` 검색, 이름·길이·크기 정렬
 - **이어 재생** — 보던 위치를 기억하고 알림에서 "처음부터"를 고를 수 있습니다
 - **자막** — SRT·VTT·SMI·ASS, 같은 이름의 자막 자동 불러오기(`영화.ko.srt`도 인식), **한글 인코딩(CP949) 자동 판별**, 싱크 조절, 글꼴 5종(Noto Sans·Pretendard·나눔고딕·Noto Serif·나눔명조 내장)·굵기·색·외곽선·크기·높이
@@ -39,7 +42,7 @@
 
 - **Windows** — SmartScreen 창에서 `추가 정보` → `실행`. 사용자 폴더에 설치되며 관리자 권한을 요구하지 않습니다.
 - **macOS** — Apple 공증을 받지 않은 ad-hoc 서명입니다. 처음 한 번은 Finder에서 앱을 **우클릭 → 열기**하거나, 시스템 설정 → 개인정보 보호 및 보안에서 `그래도 열기`를 누르세요.
-- **Linux** — deb는 `sudo apt install ./Pi-Player-*-linux-x64.deb`. AppImage는 FUSE가 필요하며, 없으면 `--appimage-extract-and-run`으로 실행할 수 있습니다.
+- **Linux** — deb는 `sudo apt install ./Pi-Player-*-linux-amd64.deb`, rpm은 `sudo dnf install ./Pi-Player-*-linux-x86_64.rpm`(ARM64는 파일 이름의 arm64·aarch64판). AppImage는 FUSE가 필요하며, 없으면 `--appimage-extract-and-run`으로 실행할 수 있습니다.
 
 ## 파일 연결 (기본 앱으로 쓰기)
 
@@ -82,18 +85,21 @@ This repository hosts installers only; the source code is not published.
 
 | Device | File |
 | --- | --- |
-| Windows 10/11, 64-bit | `windows-x64-setup.exe` (recommended) or `windows-x64-portable.exe` |
-| Apple Silicon Mac | `mac-arm64.dmg` |
-| Intel Mac | `mac-x64.dmg` |
-| Ubuntu/Debian, 64-bit | `linux-x64.deb` |
-| Other Linux, 64-bit | `linux-x64.AppImage` (make it executable first) |
+| Windows 10/11, Intel/AMD 64-bit | `windows-x64-setup.exe` (recommended) or `windows-x64-portable.exe` |
+| Windows 11 on ARM | `windows-arm64-setup.exe` or `windows-arm64-portable.exe` |
+| Apple Silicon Mac | `mac-arm64.dmg` (or `.zip`) |
+| Intel Mac | `mac-x64.dmg` (or `.zip`) |
+| Ubuntu/Debian/Mint, 64-bit | `linux-amd64.deb` |
+| Fedora/RHEL/openSUSE, 64-bit | `linux-x86_64.rpm` |
+| Other Linux, 64-bit | `linux-x86_64.AppImage` (make it executable first) |
+| Linux on ARM64 (e.g. Raspberry Pi 4/5, 64-bit OS) | `linux-arm64.deb`, `linux-aarch64.rpm` or `linux-arm64.AppImage` |
 | Android | [Pi Player on Google Play](https://play.google.com/store/apps/details?id=com.PiDimension.PiPlayer.viewer) (no APK is published) |
 
-**Features** — galleries (sets of folders; switch in the sidebar or with Ctrl+1–9; the first start creates one from your Videos folder), resume, favorites, tags and notes, SRT/VTT/SMI/ASS subtitles with Korean encoding detection and five bundled subtitle fonts, speed 0.25–4×, A-B repeat, frame stepping, picture adjustments, snapshots, picture-in-picture, Wi-Fi sharing to phones and tablets, Windows 11 styling (Mica, taskbar buttons, jump list, Explorer "Add to Pi Player gallery"), keyboard shortcuts (`?`), dark mode, Korean and English (including the installer).
+**Features** — galleries (each a set of any number of folders; switch in the sidebar or with Ctrl+1–9; the first start creates "My Videos" from your Videos folder), resume, favorites, tags and notes, SRT/VTT/SMI/ASS subtitles with Korean encoding detection and five bundled subtitle fonts, speed 0.25–4×, A-B repeat, frame stepping, picture adjustments, snapshots, picture-in-picture, Wi-Fi sharing to phones and tablets, Windows 11 styling (Mica, taskbar buttons, jump list, Explorer "Add to Pi Player gallery"), keyboard shortcuts (`?`), dark mode, Korean and English (including the installer).
 
 **Formats** — only patent-free codecs are included: VP8, VP9, AV1, Theora video and Opus, Vorbis, FLAC, MP3, WAV audio. **H.264, HEVC and AAC** (most MP4 and MKV files) are patent-encumbered, so Pi Player neither includes nor downloads them; those files open in your operating system's default player (optionally at once, in Settings → Codecs). For the same reason the installer does not register Pi Player for MP4, MOV, MKV, M4A or AAC.
 
-**First start** — there is no code-signing certificate yet. Windows: SmartScreen → *More info* → *Run anyway* (installs per user, no admin rights). macOS: right-click the app → *Open* once. Linux: `sudo apt install ./Pi-Player-*-linux-x64.deb`, or run the AppImage (needs FUSE).
+**First start** — there is no code-signing certificate yet. Windows: SmartScreen → *More info* → *Run anyway* (installs per user, no admin rights). macOS: right-click the app → *Open* once. Linux: `sudo apt install ./Pi-Player-*-linux-amd64.deb`, `sudo dnf install ./Pi-Player-*-linux-x86_64.rpm`, or run the AppImage (needs FUSE).
 
 **Privacy** — your library, history, favorites, tags and notes stay on this computer. The internet is used only to check for a new version (can be turned off), sending nothing but the version number.
 
