@@ -47,7 +47,7 @@
 ## 파일 연결 (기본 앱으로 쓰기)
 
 - **Windows** — 설치 프로그램이 webm·ogv와 mp3·flac·wav·ogg·opus에 대해 Pi Player를 "연결 프로그램" 후보로 등록합니다. 다른 플레이어의 기본 설정을 바꾸지 않습니다. 기본 앱으로 쓰려면 앱의 **설정 → 일반 → Windows 기본 앱 설정 열기**나 파일 우클릭 → **연결 프로그램 → 다른 앱 선택**에서 Pi Player를 고르고 "항상"을 체크하세요.
-- **MP4·MOV·MKV·M4A·AAC는 연결하지 않습니다.** 대부분 H.264·AAC라 Pi Player가 운영체제 기본 앱으로 넘기는 파일이므로, 이 형식의 기본 앱은 다른 플레이어로 두세요.
+- **MP4·MOV·MKV·M4A·AAC는 연결하지 않습니다.** 대부분 H.264·AAC라 처음에는 Pi Player가 운영체제 기본 앱으로 넘기는 파일입니다. H.264·AAC를 직접 추가했다면 "연결 프로그램"에서 Pi Player를 고를 수 있습니다.
 - **macOS** — 파일 선택 → `정보 가져오기` → `다음으로 열기`에서 Pi Player → `모두 변경`
 - **Linux** — 파일 관리자의 `다른 프로그램으로 열기`에서 Pi Player 선택
 
@@ -55,10 +55,16 @@
 
 앱에는 특허 부담이 없는 코덱만 들어 있습니다: **VP8·VP9·AV1·Theora 영상, Opus·Vorbis·FLAC·MP3·WAV 음성**(WebM·MKV·MP4·OGG 등).
 
-**H.264·HEVC 영상과 AAC 음성**(대부분의 MP4·MKV)은 특허 대상이라 Pi Player에 넣지 않았고, 받아 주거나 설치하는 기능도 없습니다.
+**H.264·HEVC 영상과 AAC 음성**(대부분의 MP4·MKV)은 특허 대상이라 Pi Player에 넣지 않았고, 앱이 대신 받아 주지도 않습니다.
 이런 파일은 목록에 "기본 앱" 표시가 붙고, 재생하면 **운영체제 기본 앱(Windows 미디어 플레이어·영화 및 TV, macOS QuickTime 등)으로 열기**를
 안내합니다. 설정 → 코덱에서 "이런 파일은 바로 기본 앱으로 열기"를 켜면 안내 없이 바로 엽니다. AVI·WMV·AC-3·DTS 등도 같은 방식입니다.
 Wi-Fi 공유로 휴대폰에서 볼 때는 휴대폰의 내장 디코더로 재생되므로 H.264도 재생됩니다.
+
+**MP4를 앱 안에서 보려면 — H.264·AAC 직접 추가(선택)**: 설정 → 코덱의 안내대로 Electron 프로젝트의 공식 GitHub 릴리스에서
+`electron-v44.4.5-<운영체제>-<CPU>.zip`을 직접 받아 넣으세요(다운로드 폴더에 있으면 앱이 찾아 줍니다). 앱이 공식 파일인지(SHA-256) 확인하고
+그 안의 FFmpeg만 꺼내 쓰며, 다시 시작하면 MP4·MKV가 앱 안에서 재생됩니다. 이 파일은 Pi-Dimension이 아니라 Electron 프로젝트가 배포하는 것이고,
+파일과 코덱의 이용 조건(특허 포함)은 사용자가 확인해야 합니다. "추가한 코덱 제거"로 언제든 되돌릴 수 있습니다.
+설치형에서만 되며(무설치판 제외) macOS에서는 시험 기능입니다. HEVC는 이 파일에도 없어 계속 기본 앱으로 엽니다.
 
 ## 개인정보
 
@@ -97,7 +103,7 @@ This repository hosts installers only; the source code is not published.
 
 **Features** — galleries (each a set of any number of folders; switch in the sidebar or with Ctrl+1–9; the first start creates "My Videos" from your Videos folder), resume, favorites, tags and notes, SRT/VTT/SMI/ASS subtitles with Korean encoding detection and five bundled subtitle fonts, speed 0.25–4×, A-B repeat, frame stepping, picture adjustments, snapshots, picture-in-picture, Wi-Fi sharing to phones and tablets, Windows 11 styling (Mica, taskbar buttons, jump list, Explorer "Add to Pi Player gallery"), keyboard shortcuts (`?`), dark mode, Korean and English (including the installer).
 
-**Formats** — only patent-free codecs are included: VP8, VP9, AV1, Theora video and Opus, Vorbis, FLAC, MP3, WAV audio. **H.264, HEVC and AAC** (most MP4 and MKV files) are patent-encumbered, so Pi Player neither includes nor downloads them; those files open in your operating system's default player (optionally at once, in Settings → Codecs). For the same reason the installer does not register Pi Player for MP4, MOV, MKV, M4A or AAC.
+**Formats** — only patent-free codecs are included: VP8, VP9, AV1, Theora video and Opus, Vorbis, FLAC, MP3, WAV audio. **H.264, HEVC and AAC** (most MP4 and MKV files) are patent-encumbered, so Pi Player neither includes nor downloads them; those files open in your operating system's default player (optionally at once, in Settings → Codecs). To play them in the app, you can add H.264 and AAC yourself: download Electron's official `electron-v44.4.5-<os>-<arch>.zip` from the Electron GitHub release and give it to Pi Player (Settings → Codecs), which checks its SHA-256 and uses only the FFmpeg library inside. That file comes from the Electron project, and its terms (including patents) are yours to check; installer builds only, experimental on macOS, HEVC not included. For the same reason the installer does not register Pi Player for MP4, MOV, MKV, M4A or AAC.
 
 **First start** — there is no code-signing certificate yet. Windows: SmartScreen → *More info* → *Run anyway* (installs per user, no admin rights). macOS: right-click the app → *Open* once. Linux: `sudo apt install ./Pi-Player-*-linux-amd64.deb`, `sudo dnf install ./Pi-Player-*-linux-x86_64.rpm`, or run the AppImage (needs FUSE).
 

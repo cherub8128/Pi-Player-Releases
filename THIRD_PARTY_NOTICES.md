@@ -43,7 +43,9 @@ Media decoding uses FFmpeg as a separate shared library (`ffmpeg.dll` on Windows
 
 ### Codecs
 
-Pi Player does **not** include, distribute, host, download or explain how to install H.264, HEVC or AAC decoders. The packages contain only the codec-free FFmpeg build described above (the build replaces Electron's default library with it and cannot skip that step). Files that use these codecs, and formats the runtime cannot decode at all (AVI, WMV, MPEG-2, AC-3/DTS audio), are handed to the operating system's default player, whose decoders are licensed by the operating system vendor. Wi-Fi sharing sends files to the phone, which plays them with its own built-in decoders.
+Pi Player does **not** include, distribute, host or download H.264, HEVC or AAC decoders. The packages contain only the codec-free FFmpeg build described above (the build replaces Electron's default library with it and cannot skip that step). Files that use these codecs, and formats the runtime cannot decode at all (AVI, WMV, MPEG-2, AC-3/DTS audio), are handed to the operating system's default player, whose decoders are licensed by the operating system vendor. Wi-Fi sharing sends files to the phone, which plays them with its own built-in decoders.
+
+Optionally, a user may add H.264 and AAC themselves: the user downloads Electron's official runtime archive (`electron-v44.4.5-<platform>-<arch>.zip`) from the Electron project's GitHub release, and Pi Player verifies it against the SHA-256 published in Electron's `SHASUMS256.txt` and uses the FFmpeg library inside it instead of the codec-free one. That file is obtained by the user from the Electron project, not from Pi-Dimension, and the user is responsible for its terms, including any patent licenses the codecs may require. HEVC is not part of it.
 
 The LGPL right to replace the FFmpeg library in your own installation is unaffected.
 
