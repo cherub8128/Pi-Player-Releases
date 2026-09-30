@@ -30,7 +30,7 @@
 - **라이브러리** — 하위 폴더까지 동영상·음악을 모읍니다. 이어 보기, 최근 재생, 즐겨찾기, 폴더·태그별 보기, `#태그` 검색, 이름·길이·크기 정렬
 - **이어 재생** — 보던 위치를 기억하고 알림에서 "처음부터"를 고를 수 있습니다
 - **자막** — SRT·VTT·SMI·ASS, 같은 이름의 자막 자동 불러오기(`영화.ko.srt`도 인식), **한글 인코딩(CP949) 자동 판별**, 싱크 조절, 글꼴 5종(Noto Sans·Pretendard·나눔고딕·Noto Serif·나눔명조 내장)·굵기·색·외곽선·크기·높이
-- **재생** — 배속 0.25–4×, 누르고 있는 동안 빨리 감기, 볼륨 200 %, 구간 반복(A-B), 프레임 이동, 재생 막대 미리보기, 다중 음성 트랙 전환
+- **재생** — 배속 0.25–4×, 누르고 있는 동안 빨리 감기, 볼륨 200 %, 스마트 볼륨(영상·장면마다 다른 소리 크기를 일정하게), 구간 반복(A-B), 프레임 이동, 재생 막대 미리보기, 다중 음성 트랙 전환
 - **화면** — 맞춤·채우기·원본, 회전, 좌우 반전(댄스·운동 영상 연습), 밝기·대비·채도, 현재 장면 PNG 저장, PiP 작은 화면, 항상 위에
 - **재생 방식** — 연속 재생, 목록 반복, 한 편 반복, 한 편만, 무작위
 - **파일 연결** — WebM·OGG 동영상과 MP3·FLAC·WAV·OGG·Opus 음악을 더블클릭해 Pi Player로 열 수 있습니다. 이미 열려 있으면 그 창에서 열고 같은 폴더가 재생 목록이 됩니다
@@ -103,7 +103,7 @@ This repository hosts installers only; the source code is not published.
 | Linux on ARM64 (e.g. Raspberry Pi 4/5, 64-bit OS) | `linux-arm64.deb`, `linux-aarch64.rpm` or `linux-arm64.AppImage` |
 | Android | [Pi Player on Google Play](https://play.google.com/store/apps/details?id=com.PiDimension.PiPlayer.viewer) (no APK is published) |
 
-**Features** — galleries (each a set of any number of folders; switch in the sidebar or with Ctrl+1–9; the first start creates "My Videos" from your Videos folder), resume, favorites, tags and notes, SRT/VTT/SMI/ASS subtitles with Korean encoding detection and five bundled subtitle fonts, speed 0.25–4×, A-B repeat, frame stepping, picture adjustments, snapshots, picture-in-picture, Wi-Fi sharing to phones and tablets, Windows 11 styling (Mica, taskbar buttons, jump list, Explorer "Add to Pi Player gallery"), keyboard shortcuts (`?`), dark mode, Korean and English (including the installer).
+**Features** — galleries (each a set of any number of folders; switch in the sidebar or with Ctrl+1–9; the first start creates "My Videos" from your Videos folder), resume, favorites, tags and notes, SRT/VTT/SMI/ASS subtitles with Korean encoding detection and five bundled subtitle fonts, speed 0.25–4×, smart volume (steady loudness across files and scenes), A-B repeat, frame stepping, picture adjustments, snapshots, picture-in-picture, Wi-Fi sharing to phones and tablets, Windows 11 styling (Mica, taskbar buttons, jump list, Explorer "Add to Pi Player gallery"), keyboard shortcuts (`?`), dark mode, Korean and English (including the installer).
 
 **Formats** — only patent-free codecs are included: VP8, VP9, AV1, Theora video and Opus, Vorbis, FLAC, MP3, WAV audio. **H.264, HEVC and AAC** (most MP4 and MKV files) are patent-encumbered, so Pi Player neither includes nor downloads them; those files open in your operating system's default player (optionally at once, in Settings → Codecs). To play them in the app, you can add H.264 and AAC yourself: download Electron's official `electron-v44.4.5-<os>-<arch>.zip` from the Electron GitHub release and give it to Pi Player (Settings → Codecs), which checks its SHA-256 and uses only the FFmpeg library inside. That file comes from the Electron project, and its terms (including patents) are yours to check; installer builds only, experimental on macOS, HEVC not included. For the same reason the installer does not register Pi Player for MP4, MOV, MKV, M4A or AAC.
 
