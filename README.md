@@ -74,11 +74,11 @@ Wi-Fi 공유로 휴대폰에서 볼 때는 휴대폰의 내장 디코더로 재�
 
 ## 문제가 생기면
 
-[이슈](https://github.com/cherub8128/Pi-Player-Releases/issues)를 남기거나 cherub8128@gmail.com으로 알려 주세요. 운영체제와 버전, 어떤 파일(확장자)에서 생기는지 적어 주시면 빨리 찾을 수 있습니다.
+[이슈](https://github.com/cherub8128/Pi-Player-Releases/issues)를 남기거나 support@pi-dimension.com으로 알려 주세요. 운영체제와 버전, 어떤 파일(확장자)에서 생기는지 적어 주시면 빨리 찾을 수 있습니다.
 
 ## 이용 안내
 
-개인·교육·회사·기관의 업무용 사용과 조직 내부 설치를 무료로 허용합니다. 앱의 판매·외부 재배포는 제한됩니다. 자세한 조건은 [이용약관](LICENSE.txt), 포함된 오픈소스의 조건은 [라이선스 고지](THIRD_PARTY_NOTICES.md)를 확인하세요. Electron·Chromium의 전체 고지는 설치 폴더의 `LICENSES.chromium.html`에 함께 배포됩니다. 내장 글꼴은 모두 SIL Open Font License 1.1이며 원문은 [licenses](licenses/)에 있습니다. 보안 설계와 점검 결과는 앱 저장소의 보안 문서에 정리되어 있으며, 취약점은 cherub8128@gmail.com으로 제보해 주세요.
+개인·교육·회사·기관의 업무용 사용과 조직 내부 설치를 무료로 허용합니다. 앱의 판매·외부 재배포는 제한됩니다. 자세한 조건은 [이용약관](LICENSE.txt), 포함된 오픈소스의 조건은 [라이선스 고지](THIRD_PARTY_NOTICES.md)를 확인하세요. Electron·Chromium의 전체 고지는 설치 폴더의 `LICENSES.chromium.html`에 함께 배포됩니다. 내장 글꼴은 모두 SIL Open Font License 1.1이며 원문은 [licenses](licenses/)에 있습니다. 보안 설계와 점검 결과는 앱 저장소의 보안 문서에 정리되어 있으며, 취약점은 support@pi-dimension.com으로 제보해 주세요.
 
 [Pi-Dimension](https://pi-dimension.com/)
 
@@ -111,4 +111,4 @@ This repository hosts installers only; the source code is not published.
 
 **Privacy** — your library, history, favorites, tags and notes stay on this computer. The internet is used only to check for a new version (can be turned off), sending nothing but the version number.
 
-**Terms** — [license](LICENSE.txt) (Korean) and [third-party notices](THIRD_PARTY_NOTICES.md). Report problems in [Issues](https://github.com/cherub8128/Pi-Player-Releases/issues) or to cherub8128@gmail.com.
+**Terms** — [license](LICENSE.txt) (Korean) and [third-party notices](THIRD_PARTY_NOTICES.md). Report problems in [Issues](https://github.com/cherub8128/Pi-Player-Releases/issues) or to support@pi-dimension.com.
